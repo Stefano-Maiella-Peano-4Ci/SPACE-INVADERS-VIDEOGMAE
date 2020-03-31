@@ -13,9 +13,7 @@ import java.awt.Graphics;
  *
  * @author tonin
  */
-public class Intro extends Space{
-    
-    private int i =0;
+public class Intro extends Space {
     
     
     
