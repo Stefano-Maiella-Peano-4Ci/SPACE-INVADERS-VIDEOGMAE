@@ -18,39 +18,30 @@ import javax.swing.WindowConstants;
 
 /**
  *
- * @author Prof. Matteo Palitto
+ * @author Tonin
  */
 
-// creo un JFrame che contiene il gioco
-//permette di avere la barra per il titolo e i classici pulsanti -ox
+
 public class SpaceInvaders extends JFrame {
-    // Lo spazio immenso (il Canvas incui dipingere la scena del gioco
     private Space space = new Space();
 
-    //private Graphics graphics;
-
     public SpaceInvaders() throws InterruptedException {
-        super("Space Invaders 101"); //diamo un titolo alla finestra di gioco
-        // quando premo la X della finestra voglio terminare il gioco/programma
+        super("Space Invaders 101"); 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
-        // aggiungo lo spazio profondo alla finestra di gioco
+   
         this.setResizable(false);
         setIgnoreRepaint(true);
 
         
-        // avvia l'introduzione
+
         Intro intro = new Intro();
         this.add(intro);
-        // impacchetto il tutto e rendi visibile
+
         this.pack();
         this.setVisible(true);
 
 
         intro.run();
-//        this.remove(intro);
-//        this.add(space);
-        
     }
     
     
@@ -97,9 +88,7 @@ class Intro extends Space {
 
     
     void disegna() {
-        //chiediamo il buffer in cui comporre la nuova immagine
         Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
-        //cancelliamo l'immagine precedente coprendola con un rettangolo nero
         g.setColor(Color.black);
         g.fillRect(0,0,800,600);
          
@@ -109,9 +98,9 @@ class Intro extends Space {
         g.drawString("Space Invaders", 100+i, 100+i);
         g.setFont(new Font("Bold", Font.PLAIN, 10+i));
         g.drawString("          by Matteo Palitto", 110+i+i, 110+i+i);
-        //rilascia risorse create per la composizione di questa immagine
+
         g.dispose(); 
-        //visualizza la nuova immagine sullo schermo
+
         strategy.show(); 
     }
 
